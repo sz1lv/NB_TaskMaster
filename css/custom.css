@@ -1,0 +1,557 @@
+html {
+    scroll-behavior: smooth; /*Chrome, Firefox*/
+}
+
+.menu {
+    padding-top: 1.5em;
+    text-align: center;
+    display: flex;
+}
+
+/*.menu:hover {
+    text-shadow: 1px 1px 1px #C0C0C0;
+}*/
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    width: 20em;
+}
+
+.col-lg-4 {
+    text-align: center !important;
+}
+
+a {
+    text-align: center !important;
+    color: #000;
+    font-size: 1em;
+}
+
+a:link, a:visited, a:active{
+    text-decoration: none !important;
+    color: #000 !important;
+    text-transform: uppercase;
+}
+
+a:hover {
+    border-bottom: 1px solid #3F9292;
+    text-decoration: none;
+    color: #3F9292;
+    text-transform: uppercase;
+}
+
+*, .row.col-lg-12 {
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0;
+    font-family: "Century Gothic";
+    padding-left: 0px !important;
+}
+
+.button {
+    background-color: rgba(255,255,255,0.9);
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase !important;
+    position: relative;
+    top: 20em;
+    padding: 20px 40px 20px 40px !important;
+    border: 1px solid #000;
+}
+
+.button2 {
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase !important;
+    position: relative;
+    top: 20em;
+    padding: 20px 40px 20px 40px !important;
+    border: 1px solid #fff;
+}
+
+.button:hover {
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.button2:hover {
+    background-color: rgba(255,255,255,0.9);
+    color: #000;
+    border: 1px solid #000;
+}
+
+.button3 {
+    background-color: #3F9292;
+    color: #fff !important;
+    text-transform: uppercase !important;
+    padding: 10px 30px 10px 30px !important;
+    border: 1px solid #3F9292;
+    cursor: pointer;
+}
+
+.button3:hover {
+    background-color: #2f6e6e;
+    border: 1px solid #2f6e6e;
+    text-decoration: none !important;
+}
+
+button.button3 a {
+    color: #fff !important;
+}
+
+button.button3 a:hover {
+    border-bottom: none;
+}
+
+.container-fluid {
+    position: relative;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.main-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 860px;
+}
+
+.buttonpart, .buttonpart2 {
+    z-index: 1;
+}
+
+/*@media only screen and (min-width: 720px) {
+    .mainmenu {
+        display: flex;
+        flex-direction: column;
+    }
+}*/
+
+h5 {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    top: 5em;
+}
+
+.mainmenu {
+    background-color: #fff;
+    border: 3px solid #fff;
+}
+
+div.row.col-lg-12.first {
+    height: 4.5em;
+    position: fixed;
+    z-index: 5;
+    box-shadow: 1px 1px 2px #C0C0C0;
+}
+
+.logo {
+    position: relative;
+    bottom: 0.7em;
+    left: 1em;
+    text-align: left;
+}
+
+.logo a.title {
+    text-transform: none;
+    border-bottom: none;
+}
+
+#about {
+    height: 100%;
+    padding-bottom: 5em;
+}
+
+#us {
+    background-color: #323232;
+    color: #fff;
+    padding-bottom: 8em;
+}
+
+#connect {
+    height: 500px;
+}
+
+#reklam {
+    height: 100%;
+    padding-bottom: 7.5em;
+}
+
+#footer {
+    background-color: #323232;
+    height: 300px;
+    border-bottom: 2em solid #222222;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    color: #3F9292;
+    font-weight: 600;
+    min-width: 100%;
+    text-align: right;
+}
+
+.row.col-lg-12.container {
+    padding-top: 5em;
+}
+
+div#reklam.row.col-lg-12.container {
+    padding-top: 7.5em;
+}
+
+div#us.row.col-lg-12.container {
+    padding-top: 8em !important;
+}
+
+.container3 {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.about {
+    width: 30em;
+}
+
+.test {
+    text-align: center;
+    min-width: 100%;
+    font-size: 1.5em;
+}
+
+h3.who-are-we, h3 {
+    color: #3F9292 !important;
+    position: relative;
+    font-weight: 700 !important;
+    font-size: 2em !important;
+    min-width: 100%;
+    text-align: center;
+    padding: 10px !important;
+}
+
+.copyright {
+    color: #BDC1C8;
+    font-size: 0.8em;
+    text-align: center;
+    min-width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+h6 {
+    height: 2em !important;
+    margin: 0 auto;
+}
+
+#login {
+    display: none;
+}
+
+#outForm {
+    padding: 7em 3em 2em 3em !important;
+    background-color: rgba(255,255,255,0.6);
+    margin-left: 1em !important;
+}
+
+input[type=text], input[type=password] {
+    margin-bottom: 0.5em !important;
+    line-height: 1.5em;
+    border-radius: 0;
+}
+
+input[type=submit] {
+    margin-top: 1em !important;
+}
+
+span {
+    color: #3F9292;
+    margin-left: 0.3em !important;
+}
+
+.szures {
+    margin-left: 4em !important;
+    margin-top: 7em !important;
+}
+
+.szures_btn {
+    background-color: #3F9292;
+    color: #fff;
+    text-transform: uppercase !important;
+    padding: 5px 15px 5px 15px !important;
+    border: 1px solid #3F9292;
+    margin-left: 2em !important;
+}
+
+.szures_btn:hover {
+    background-color: #2f6e6e;
+    border: 1px solid #2f6e6e;
+}
+
+.hamburger {
+    padding: 0 1em 0 0;
+    font-size: 2em;
+    line-height: 70px;
+    display: none;
+    width: 1em;
+    float: right;
+}
+
+#toggle {
+    display: none;
+}
+
+ul.menu.forMobile li a {
+    clear: right;
+}
+
+.firstRow {
+    padding-bottom: 6em;
+}
+
+.container {
+    min-width: 100% !important;
+}
+
+.fade-in, .slide-in {
+    opacity:0 !important;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity:0;
+    } to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadeIn {
+    from {
+        opacity:0;
+    } to { opacity:1;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    } to {
+        opacity:1;
+    }
+}
+
+.button.fade-in.one {
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+    margin-bottom: 3em !important;
+    cursor: pointer;
+}
+
+.button2.fade-in.two {
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay:1.2s;
+    animation-delay: 1.2s;
+    cursor: pointer;
+}
+
+/* Működő fade-in, de helyette slideolást választottam
+.welcome {
+    padding: 2em;
+    min-width: 100%;
+    height: 20%;
+    color: #fff;
+    font-weight: 600;
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}*/
+
+/*.big-logo {
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    width: 60%;
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(1vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(6vw);
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+}*/
+
+.come-in {
+    animation: come-in 3s ease forwards;
+}
+
+@keyframes come-in {
+    from {
+        transform: translateX(1vw);
+    }
+    to {
+        transform: translateX(10vw);
+    }
+}
+
+.come-up1 {
+    animation: come-up1 2s ease forwards;
+}
+
+@keyframes come-up1 {
+    from {
+        transform: translateY(10vw);
+    }
+    to {
+        transform: translateY(0vw);
+    }
+}
+
+.come-up2 {
+    animation: come-up2 3s ease forwards;
+}
+
+@keyframes come-up2 {
+    from {
+        transform: translateY(10vw);
+    }
+    to {
+        transform: translateY(0vw);
+    }
+}
+
+#employee {
+    min-width: 90%;
+    margin-left: 5% !important;
+    margin-top: 5% !important;
+}
+
+td {
+    padding: 5px;
+}
+
+tr:first-child {
+    color: #3F9292;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.connect-info {
+    padding-top: 4em;
+    text-align: left !important;
+}
+
+.connect-info p {
+    font-size: 1.2em;
+    padding: 5px 30px 5px 30px !important;
+}
+
+.connect-info p a {
+    color: #fff !important;
+    text-transform: none;
+}
+
+div.col-lg-8.mainmenu.mobil_nav  {
+    box-shadow: 0px 1px 0px #C0C0C0 !important;
+}
+
+.maintenance h3 {
+    padding-top: 5em !important;
+    min-width: 100%;
+    text-align: center;
+}
+
+/* Reszponzív rész */
+
+@media only screen and (max-width: 600px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    ul.menu.forMobile {
+        display: none;
+    }
+    ul.menu.forMobile li a {
+        display: block;
+    }
+    #toggle:checked + .menu.forMobile {
+        display: block;
+    }
+    .button, .button2 {
+        display: none;
+    }
+    .who-are-we {
+        min-width: 100%;
+        text-align: center;
+    }
+    li {
+        min-width: 100%;
+    }
+    @keyframes come-in {
+        from {
+            transform: translateY(0%));
+        }
+        to {
+            transform: translateY(5%);
+        }
+    }
+    img.big-logo.come-in {
+        height: 100%;
+        width: 100%;
+        padding: 30px !important;
+    }
+    div.container-fluid.logged {
+        padding-bottom: 15%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    div.container-fluid.logged {
+        padding-bottom: 10%;
+    }
+}
