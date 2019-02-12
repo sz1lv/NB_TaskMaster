@@ -6,6 +6,9 @@ if (isset($_SESSION['uid'])) {
     $menu = file_get_contents("html/logout.html");
 }
 ?>
+
+<!--Teszt push 2.5-->
+
 <!DOCTYPE html>
 <html>
     <head>
