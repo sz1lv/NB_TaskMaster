@@ -1,3 +1,13 @@
+<?php
+include("config/connect.php");
+
+session_start();
+
+if (!isset($_SESSION['uid'])) {
+    header("location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,10 +22,6 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css" media="all">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <!-- Popper JS -->
-        <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>-->
-        <!-- Latest compiled JavaScript -->
-        <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
     </head>
     <body>
         <div class="container-fluid logged">
@@ -38,7 +44,34 @@
             </div>
             <div class="row col-lg-12 maintenance">
                 <h3>Az oldal fejlesztés alatt!</h3>
+                <div class="table-responsive">
+                    <h4 align="center">Online felhasználók</h4>
+                    <p align="right">Üdvözöljük - <?php echo $_SESSION['user']; ?></p>
+                    <div id="user_details"></div>
+                </div>
             </div>
         </div>
-    </body>
+
+        <script>
+            $(document).ready(function () {
+
+                fetch_user();
+
+                function fetch_user()
+                {
+                    $.ajax({
+                        url: "fetch_user.php",
+                        method: "POST",
+                        success: function (data) {
+                            $('#user_details').html(data);
+                        }
+                    })
+                }
+
+            });
+        </script>
+    </div>
+</body>
 </html>
+
+
