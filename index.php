@@ -7,7 +7,7 @@ if (isset($_SESSION['uid'])) {
 }
 ?>
 
-<!--Teszt push 2.5-->
+<!--Teszt push 3.0-->
 
 <!DOCTYPE html>
 <html>
