@@ -1,13 +1,48 @@
 <?php
+//
+include('config/connect.php');
 session_start();
-if (isset($_SESSION['uid'])) {
+
+$message = "";
+
+if (isset($_SESSION['felhasznalo_id'])) {
     $menu = file_get_contents("loggedin.php");
 } else {
     $menu = file_get_contents("html/logout.html");
 }
-?>
 
-<!--Teszt push 3.0-->
+if (isset($_POST["submit"])) {
+    $query = "
+   SELECT * FROM belepesi_adatok
+   WHERE felhasznalo_nev = :felhasznalo_nev
+ ";
+    $statement = $connect->prepare($query);
+    $statement->execute(
+            array(
+                ':felhasznalo_nev' => $_POST["felhasznalo_nev"]
+            )
+    );
+    $count = $statement->rowCount();
+    if ($count > 0) {
+        $result = $statement->fetchAll();
+        foreach ($result as $row) {
+            if (password_verify($_POST['jelszo'], $row['jelszo'])) {
+                $_SESSION['felhasznalo_id'] = $row['felhasznalo_id'];
+                $_SESSION['felhasznalo_nev'] = $row['felhasznalo_nev'];
+                $sub_query = "INSERT INTO belepes_reszletek (`felhasznalo_id`) VALUES ('" . $row['felhasznalo_id'] . "')";
+                $stmt = $db->prepare($sub_query);
+                $stmt->execute();
+                $_SESSION['felhasznalo_id'] = $db->lastInsertId();
+                header("location:loggedin.php");
+            } else {
+                $message = "<label>Helytelen belépési adat!</label>";
+            }
+        }
+    } else {
+        $message = "<label>Helytelen belépési adat!AAA</labe>";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,10 +80,11 @@ if (isset($_SESSION['uid'])) {
                     <div class="col-lg-4">
                         <div id="login">
                             <form id="outForm" method="POST" action="belep.php">
+<!--                                <p class="text-danger"><?php echo $message; ?></p>-->
                                 <label>Felhasználónév:</label>
-                                <input class="form-control" type="text" name="user" placeholder="" required>
+                                <input class="form-control" type="text" name="felhasznalo_nev" placeholder="" required>
                                 <label>Jelszó:</label>
-                                <input class="form-control" type="password" name="password" placeholder="" required>
+                                <input class="form-control" type="password" name="jelszo" placeholder="" required>
                                 <input class="button3" type="submit" value="Bejelentkezés" name="submit">
                             </form>
                         </div>

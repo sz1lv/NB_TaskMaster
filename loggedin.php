@@ -3,7 +3,7 @@ include("config/connect.php");
 
 session_start();
 
-if (!isset($_SESSION['uid'])) {
+if (!isset($_SESSION['felhasznalo_id'])) {
     header("location: index.php");
 }
 ?>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['uid'])) {
                 <h3>Az oldal fejlesztés alatt!</h3>
                 <div class="table-responsive">
                     <h4 align="center">Online felhasználók</h4>
-                    <p align="right">Üdvözöljük - <?php echo $_SESSION['user']; ?></p>
+                    <p align="left">Üdvözöljük - <?php echo $_SESSION['felhasznalo_nev']; ?></p>
                     <div id="user_details"></div>
                 </div>
             </div>
@@ -57,13 +57,30 @@ if (!isset($_SESSION['uid'])) {
 
                 fetch_user();
 
+                //5mp-ként frissíti a státuszt
+                setInterval(function () {
+                    update_activity();
+                    fetch_user();
+                }, 5000);
+
                 function fetch_user()
                 {
                     $.ajax({
-                        url: "fetch_user.php",
+                        url: "php/fetch_user.php",
                         method: "POST",
                         success: function (data) {
                             $('#user_details').html(data);
+                        }
+                    })
+                }
+
+                function update_activity()
+                {
+                    $.ajax({
+                        url: "php/update_activity.php",
+                        success: function ()
+                        {
+
                         }
                     })
                 }

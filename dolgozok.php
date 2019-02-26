@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once('config/connect.php');
-if (isset($_SESSION['uid'])) {
-    $id = $_SESSION['uid'];
+if (isset($_SESSION['azonosito'])) {
+    $id = $_SESSION['azonosito'];
     $menu = file_get_contents("loggedin.php");
 } else {
     header('Location: index.php');
