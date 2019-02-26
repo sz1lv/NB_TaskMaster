@@ -1,5 +1,5 @@
 <?php
-//
+
 include('config/connect.php');
 session_start();
 
@@ -11,37 +11,40 @@ if (isset($_SESSION['felhasznalo_id'])) {
     $menu = file_get_contents("html/logout.html");
 }
 
-if (isset($_POST["submit"])) {
-    $query = "
-   SELECT * FROM belepesi_adatok
-   WHERE felhasznalo_nev = :felhasznalo_nev
- ";
-    $statement = $connect->prepare($query);
-    $statement->execute(
-            array(
-                ':felhasznalo_nev' => $_POST["felhasznalo_nev"]
-            )
-    );
-    $count = $statement->rowCount();
-    if ($count > 0) {
-        $result = $statement->fetchAll();
-        foreach ($result as $row) {
-            if (password_verify($_POST['jelszo'], $row['jelszo'])) {
-                $_SESSION['felhasznalo_id'] = $row['felhasznalo_id'];
-                $_SESSION['felhasznalo_nev'] = $row['felhasznalo_nev'];
-                $sub_query = "INSERT INTO belepes_reszletek (`felhasznalo_id`) VALUES ('" . $row['felhasznalo_id'] . "')";
-                $stmt = $db->prepare($sub_query);
-                $stmt->execute();
-                $_SESSION['felhasznalo_id'] = $db->lastInsertId();
-                header("location:loggedin.php");
-            } else {
-                $message = "<label>Helytelen belépési adat!</label>";
-            }
-        }
-    } else {
-        $message = "<label>Helytelen belépési adat!AAA</labe>";
-    }
-}
+//if (isset($_POST["submit"])) {
+//    $query = "
+//   SELECT * FROM belepesi_adatok
+//   WHERE felhasznalo_nev = :felhasznalo_nev
+// ";
+//    $statement = $db->prepare($query);
+//    $statement->execute(
+//            array(
+//                ':felhasznalo_nev' => $_POST["felhasznalo_nev"]
+//            )
+//    );
+//    $count = $statement->rowCount();
+//    if ($count > 0) {
+//        $result = $statement->fetchAll();
+//        foreach ($result as $row) {
+//            if (felhasznalo_nev == '$userN' && jelszo == '$pass') {
+//                $_SESSION['felhasznalo_id'] = $row['felhasznalo_id'];
+//                $_SESSION['felhasznalo_nev'] = $row['felhasznalo_nev'];
+//                $sub_query = "INSERT INTO belepes_reszletek (`felhasznalo_id`) VALUES ('" . $row['felhasznalo_id'] . "')";
+//                $stmt = $db->prepare($sub_query);
+//                $stmt->execute();
+//                $_SESSION['id'] = $db->mysqli_insert_id();
+//                header("location:loggedin.php");
+//            } else {
+//                $message = "<label>Helytelen belépési adat!</label>";
+//            }
+//        }
+//    } else {
+//        $message = "<label>Helytelen belépési adat!AAA</labe>";
+//    }
+//}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +53,10 @@ if (isset($_POST["submit"])) {
         <title>taskmaster</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/custom.js"></script>

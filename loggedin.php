@@ -1,8 +1,7 @@
 <?php
+
 include("config/connect.php");
-
 session_start();
-
 if (!isset($_SESSION['felhasznalo_id'])) {
     header("location: index.php");
 }
@@ -14,7 +13,10 @@ if (!isset($_SESSION['felhasznalo_id'])) {
         <title>taskmaster</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="shortcut icon" type="image/png" href="img/tm_logo7-1.png"/>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -52,43 +54,41 @@ if (!isset($_SESSION['felhasznalo_id'])) {
             </div>
         </div>
 
-        <script>
-            $(document).ready(function () {
 
-                fetch_user();
-
-                //5mp-ként frissíti a státuszt
-                setInterval(function () {
-                    update_activity();
-                    fetch_user();
-                }, 5000);
-
-                function fetch_user()
-                {
-                    $.ajax({
-                        url: "php/fetch_user.php",
-                        method: "POST",
-                        success: function (data) {
-                            $('#user_details').html(data);
-                        }
-                    })
-                }
-
-                function update_activity()
-                {
-                    $.ajax({
-                        url: "php/update_activity.php",
-                        success: function ()
-                        {
-
-                        }
-                    })
-                }
-
-            });
-        </script>
     </div>
 </body>
 </html>
+<script>
+    $(document).ready(function () {
 
+        fetch_user();
+
+        setInterval(function () {
+            update_last_activity();
+            fetch_user();
+        }, 2000);
+
+        function fetch_user()
+        {
+            $.ajax({
+                url: "php/fetch_user.php",
+                method: "POST",
+                success: function (data) {
+                    $('#user_details').html(data);
+                }
+            });
+        }
+
+        function update_last_activity()
+        {
+            $.ajax({
+                url: "php/update_activity.php",
+                success: function ()
+                {
+
+                }
+            });
+        }
+    });
+</script>
 
