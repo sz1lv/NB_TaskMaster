@@ -2,7 +2,6 @@
 
 include('config/connect.php');
 session_start();
-
 $message = "";
 
 if (isset($_SESSION['felhasznalo_id'])) {
@@ -10,40 +9,6 @@ if (isset($_SESSION['felhasznalo_id'])) {
 } else {
     $menu = file_get_contents("html/logout.html");
 }
-
-//if (isset($_POST["submit"])) {
-//    $query = "
-//   SELECT * FROM belepesi_adatok
-//   WHERE felhasznalo_nev = :felhasznalo_nev
-// ";
-//    $statement = $db->prepare($query);
-//    $statement->execute(
-//            array(
-//                ':felhasznalo_nev' => $_POST["felhasznalo_nev"]
-//            )
-//    );
-//    $count = $statement->rowCount();
-//    if ($count > 0) {
-//        $result = $statement->fetchAll();
-//        foreach ($result as $row) {
-//            if (felhasznalo_nev == '$userN' && jelszo == '$pass') {
-//                $_SESSION['felhasznalo_id'] = $row['felhasznalo_id'];
-//                $_SESSION['felhasznalo_nev'] = $row['felhasznalo_nev'];
-//                $sub_query = "INSERT INTO belepes_reszletek (`felhasznalo_id`) VALUES ('" . $row['felhasznalo_id'] . "')";
-//                $stmt = $db->prepare($sub_query);
-//                $stmt->execute();
-//                $_SESSION['id'] = $db->mysqli_insert_id();
-//                header("location:loggedin.php");
-//            } else {
-//                $message = "<label>Helytelen belépési adat!</label>";
-//            }
-//        }
-//    } else {
-//        $message = "<label>Helytelen belépési adat!AAA</labe>";
-//    }
-//}
-
-
 
 ?>
 
@@ -53,18 +18,19 @@ if (isset($_SESSION['felhasznalo_id'])) {
         <title>taskmaster</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="js/jquery-3.3.1.min.js"></script>
+        <!--        Favicon-->
+        <link rel="shortcut icon" type="image/png" href="img/tm_logo7-1.png"/>
+        <!--        CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css" media="all">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!--        jQuery library-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/custom.js"></script>
-
-        <link rel="stylesheet" type="text/css" href="css/custom.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="shortcut icon" type="image/png" href="img/tm_logo7-1.png"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!--        JQuery UI Dialog box plugin-->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     </head>
     <body>

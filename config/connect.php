@@ -23,24 +23,4 @@ function fetch_legutobbi_aktivitas($felhasznalo_id, $db_conn) {
     }
 }
 
-//$db_conn = new PDO("mysql:host=localhost;dbname=db_taskmaster", "root", "");
-//
-//date_default_timezone_set('Asia/Kolkata');
-//
-//function fetch_user_last_activity($felhasznalo_id, $db_conn)
-//{
-// $query = "
-// SELECT * FROM belepes_reszletek
-// WHERE felhasznalo_id = '$felhasznalo_id'
-// ORDER BY legutobbi_aktivitas DESC
-// LIMIT 1
-// ";
-// $statement = $db_conn->prepare($query);
-// $statement->execute();
-// $result = $statement->fetchAll();
-// foreach($result as $row)
-// {
-//  return $row['legutobbi_aktivitas'];
-// }
-//}
 ?>

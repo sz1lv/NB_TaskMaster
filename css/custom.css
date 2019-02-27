@@ -555,3 +555,9 @@ div.col-lg-8.mainmenu.mobil_nav  {
         padding-bottom: 10%;
     }
 }
+
+.btn {
+    border-radius: 0 !important;
+    margin-left: 5px !important;
+    padding-left: 10px !important;
+}
