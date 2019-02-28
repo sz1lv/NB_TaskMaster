@@ -27,7 +27,7 @@ foreach ($result as $row) {
  <tr>
   <td>'.$row['felhasznalo_nev'].'</td>
   <td>'.$statusz.'</td>
-  <td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['felhasznalo_id'].'" data-tousername="'.$row['felhasznalo_nev'].'">Üzenet küldése</button></td>
+  <td><button type="button" class="btn btn-info btn-xs start_chat" data-kinekid="'.$row['felhasznalo_id'].'" data-kineknev="'.$row['felhasznalo_nev'].'">Üzenet küldése</button></td>
  </tr>
  ';
 }
