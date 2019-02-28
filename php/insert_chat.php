@@ -21,8 +21,8 @@ $statement = $db_conn->prepare($query);
 $statement -> bind_param("iisi",$kinek_id,$kitol_id,$uzenet,$statusz);
 if ($statement -> execute()) {
 
-    echo fetch_uzenet_tortenet($_SESSION['felhasznalo_id'], $_POST['kinek_id'], $db_conn);
-    $statement->close();
-    $db_conn->close();
+    echo fetch_message($_SESSION['felhasznalo_id'], $_POST['kinek_id'], $db_conn);
+//    $statement->close();
+//    $db_conn->close();
 }
 ?>

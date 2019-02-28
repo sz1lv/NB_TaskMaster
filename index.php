@@ -5,7 +5,7 @@ session_start();
 $message = "";
 
 if (isset($_SESSION['felhasznalo_id'])) {
-    $menu = file_get_contents("loggedin.php");
+    $menu = file_get_contents("php/loggedin.php");
 } else {
     $menu = file_get_contents("html/logout.html");
 }
@@ -51,7 +51,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                     </div>
                     <div class="col-lg-4">
                         <div id="login">
-                            <form id="outForm" method="POST" action="belep.php">
+                            <form id="outForm" method="POST" action="php/belep.php">
 <!--                                <p class="text-danger"><?php echo $message; ?></p>-->
                                 <label>Felhasználónév:</label>
                                 <input class="form-control" type="text" name="felhasznalo_nev" placeholder="" required>

@@ -1,6 +1,6 @@
 <?php
 
-include('config/connect.php');
+include('../config/connect.php');
 session_start();
 if (isset($_POST['submit'])) {
     $userN = $_POST['felhasznalo_nev'];
@@ -22,6 +22,6 @@ if (isset($_POST['submit'])) {
         header('Location: loggedin.php');
     } else {
         $_SESSION['error'] = 'Helytelen felhasználónév vagy jelszó!';
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 }

@@ -23,11 +23,11 @@ function fetch_legutobbi_aktivitas($felhasznalo_id, $db_conn) {
     }
 }
 
-function fetch_uzenet_tortenet($kitol_id, $kinek_id, $db_conn) {
+function fetch_message($kitol_id, $kinek_id, $db_conn) {
     $query = "SELECT * FROM uzenetek WHERE  (kitol_id = '".$kitol_id."'
  AND kinek_id = '".$kinek_id."')
  OR (kitol_id = '".$kinek_id."'
- AND kinek_id = '".$kitol_id."')  ORDER BY idobelyeg ASC";
+ AND kinek_id = '".$kitol_id."')  ORDER BY idobelyeg DESC";
     $result = $db_conn->query($query);
    $row = $result->fetch_assoc();
     $chat_uzenet = '<ul class="list-unstyled">';
@@ -60,7 +60,6 @@ function get_felhasznalo_nev($felhasznalo_id, $db_conn) {
     foreach ($result as $row) {
         return $row['felhasznalo_nev'];
     }
-
 }
 
 ?>

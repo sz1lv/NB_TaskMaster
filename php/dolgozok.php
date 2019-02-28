@@ -1,17 +1,17 @@
 <?php
 session_start();
-require_once('config/connect.php');
-if (isset($_SESSION['azonosito'])) {
-    $id = $_SESSION['azonosito'];
-    $menu = file_get_contents("loggedin.php");
-} else {
-    header('Location: index.php');
-    die();
-    //$menu = file_get_contents("html/logout.html");
-}
+require_once('../config/connect.php');
+//if (isset($_SESSION['azonosito'])) {
+//    $id = $_SESSION['azonosito'];
+//    $menu = file_get_contents("loggedin.php");
+//} else {
+//    header('Location: index.php');
+//    die();
+//    //$menu = file_get_contents("html/logout.html");
+//}
 
 $sql = "SELECT * FROM dolgozo;";
-$result = $db->query($sql);
+$result = $db_conn->query($sql);
 $numRows = $result->num_rows;
 
 if (isset($_GET['szures'])) {
@@ -21,7 +21,7 @@ if (isset($_GET['szures'])) {
 }
 
 $sql = "SELECT * FROM dolgozo WHERE lakohely LIKE '$lakohely'";
-$result = $db->query($sql);
+$result = $db_conn->query($sql);
 
 if ($result) {
     $tabla = "<table id='employee'>"
@@ -53,23 +53,24 @@ if ($result) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" type="image/png" href="img/tm_logo7-1.png"/>
+        <link rel="shortcut icon" type="image/png" href="../img/tm_logo7-1.png"/>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/custom.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/custom.css" media="all">
+        <script src="../js/custom.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/custom.css" media="all">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     </head>
     <body>
         <?php
+        $menu = file_get_contents("loggedin.php");
         echo $menu;
         ?>
             <?php
             $urlap = "<form method='GET' action='dolgozok.php'>";
             $sql = "SELECT DISTINCT lakohely FROM dolgozo;";
-            $result = $db->query($sql);
+            $result = $db_conn->query($sql);
             if ($result) {
                 $urlap .= "<select class='szures' name='lakohely'>";
                 while ($row = $result->fetch_row()) {
