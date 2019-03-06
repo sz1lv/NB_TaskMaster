@@ -3,7 +3,7 @@
 include("../config/connect.php");
 session_start();
 if (!isset($_SESSION['felhasznalo_id'])) {
-    header("location: index.php");
+    header("location: ../index.php");
 }
 ?>
 

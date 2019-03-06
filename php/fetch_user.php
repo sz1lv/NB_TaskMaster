@@ -23,15 +23,11 @@ foreach ($result as $row) {
     } else {
         $statusz = '<span class="p-2 mb-2 bg-danger text-white">Offline</span>';
     }
-    $tabla .= '
- <tr>
-  <td>'.$row['felhasznalo_nev'].'</td>
-  <td>'.$statusz.'</td>
-  <td><button type="button" class="btn btn-info btn-xs start_chat" data-kinekid="'.$row['felhasznalo_id'].'" data-kineknev="'.$row['felhasznalo_nev'].'">Üzenet küldése</button></td>
- </tr>
- ';
+    $tabla .= '<tr><td>' . $row['felhasznalo_nev'] . ' ' . olvasatlan_uzenetek($row['felhasznalo_id'], $_SESSION['felhasznalo_id'], $db_conn) . '</td>'
+            . '<td>' . $statusz . '</td>'
+            . '<td><button type="button" class="btn btn-info btn-xs start_chat" data-kinekid="' . $row['felhasznalo_id'] . '" data-kineknev="' . $row['felhasznalo_nev'] . '">Üzenet küldése</button></td>'
+            . '</tr>';
 }
-
 $tabla .= '</table>';
 echo $tabla;
 

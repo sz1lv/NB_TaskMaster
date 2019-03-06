@@ -37,9 +37,9 @@ a:link, a:visited, a:active{
 }
 
 a:hover {
-    border-bottom: 1px solid #3F9292;
+    border-bottom: 1px solid #6441a5;
     text-decoration: none;
-    color: #3F9292;
+    color: #6441a5;
     text-transform: uppercase;
 }
 
@@ -86,17 +86,17 @@ a:hover {
 }
 
 .button3 {
-    background-color: #3F9292;
+    background-color: #6441a5;
     color: #fff !important;
     text-transform: uppercase !important;
     padding: 10px 30px 10px 30px !important;
-    border: 1px solid #3F9292;
+    border: 1px solid #6441a5;
     cursor: pointer;
 }
 
 .button3:hover {
-    background-color: #2f6e6e;
-    border: 1px solid #2f6e6e;
+    background-color: #422b6d;
+    border: 1px solid #422b6d;
     text-decoration: none !important;
 }
 
@@ -193,7 +193,7 @@ div.row.col-lg-12.first {
     position: relative;
     bottom: 0;
     left: 0;
-    color: #3F9292;
+    color: #6441a5;
     font-weight: 600;
     min-width: 100%;
     text-align: right;
@@ -232,7 +232,7 @@ div#us.row.col-lg-12.container {
 }
 
 h3.who-are-we, h3 {
-    color: #3F9292 !important;
+    color: #6441a5 !important;
     position: relative;
     font-weight: 700 !important;
     font-size: 2em !important;
@@ -276,7 +276,7 @@ input[type=submit] {
 }
 
 span {
-    color: #3F9292;
+    color: #6441a5;
     margin-left: 0.3em !important;
 }
 
@@ -286,17 +286,17 @@ span {
 }
 
 .szures_btn {
-    background-color: #3F9292;
+    background-color: #6441a5;
     color: #fff;
     text-transform: uppercase !important;
     padding: 5px 15px 5px 15px !important;
-    border: 1px solid #3F9292;
+    border: 1px solid #6441a5;
     margin-left: 2em !important;
 }
 
 .szures_btn:hover {
-    background-color: #2f6e6e;
-    border: 1px solid #2f6e6e;
+    background-color: #422b6d;
+    border: 1px solid #422b6d;
 }
 
 .hamburger {
@@ -476,7 +476,7 @@ td {
 }
 
 tr:first-child {
-    color: #3F9292;
+    color: #6441a5;
     font-weight: 600;
     font-size: 1.5em;
 }
@@ -560,4 +560,11 @@ div.col-lg-8.mainmenu.mobil_nav  {
     border-radius: 0 !important;
     margin-left: 5px !important;
     padding-left: 10px !important;
+}
+
+.label.label-success {
+    background-color: purple;
+    padding: 5px 10px;
+    padding-left: 2% !important;
+    color: #fff;
 }

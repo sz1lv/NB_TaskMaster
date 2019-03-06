@@ -1,14 +1,14 @@
 <?php
 session_start();
 require_once('../config/connect.php');
-//if (isset($_SESSION['azonosito'])) {
-//    $id = $_SESSION['azonosito'];
-//    $menu = file_get_contents("loggedin.php");
-//} else {
-//    header('Location: index.php');
-//    die();
-//    //$menu = file_get_contents("html/logout.html");
-//}
+if (isset($_SESSION['felhasznalo_id'])) {
+    $id = $_SESSION['felhasznalo_id'];
+
+} else {
+    header('Location: ../index.php');
+    die();
+    //$menu = file_get_contents("html/logout.html");
+}
 
 $sql = "SELECT * FROM dolgozo;";
 $result = $db_conn->query($sql);
