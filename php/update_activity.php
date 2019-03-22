@@ -1,6 +1,6 @@
 <?php
 
-include('../config/connect.php');
+require_once('../config/connect.php');
 session_start();
 $query = "
 UPDATE belepes_reszletek SET legutobbi_aktivitas = now() WHERE id = '".$_SESSION["id"]."'";

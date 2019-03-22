@@ -1,7 +1,8 @@
 <?php
+
+require_once("config/connect.php");
+require_once("config/functions.php");
 session_start();
-include("config/connect.php");
-//include("config/functions.php");
 
 $message = "";
 
@@ -137,7 +138,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 <div class="row col-lg-4">
                 </div>
                 <div class="row col-lg-4">
-                    <form id="regForm" method="=POST" action="php/registration.php">
+                    <form id="regForm" method="=POST" action="php/registration_control.php">
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="" class="col-sm-2 col-form-label">Felhasználónév</label>
@@ -145,10 +146,10 @@ if (isset($_SESSION['felhasznalo_id'])) {
                             <div class="col-sm-12">
                                 <input type="text" name="regUser" class="form-control" id="regUser" placeholder="Felhasználónév">
                                 <?php
-//                                if (isset($_SESSION['regError']['regUser'])) {
-//                                    echo "<span class='hiba'>" . $_SESSION['regError']['regUser'] . "</span>";
-//                                }
-//                                ?>
+                                if (isset($_SESSION['regError']['regUser'])) {
+                                    echo "<span>" . $_SESSION['regError']['regUser'] . "</span>";
+                                }
+                                ?>
                             </div>
                         </div>
                         <div class="form-group row">

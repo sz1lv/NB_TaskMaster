@@ -1,6 +1,6 @@
 <?php
 
-include("../config/connect.php");
+require_once("../config/connect.php");
 session_start();
 if (!isset($_SESSION['felhasznalo_id'])) {
     header("location: ../index.php");

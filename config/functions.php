@@ -5,7 +5,15 @@ function readPost($kulcs) {
     if (!empty($temp)) {
         return $temp;
     } else {
-        $_SESSION['regError'][$kulcs] = "Kitöltetlen mező!";
+        $_SESSION['regError'][$kulcs] = 'Kitöltetlen mező!';
     }
 }
-?>
+
+function setRegError($kulcs, $msg) {
+    if (isset($_SESSION['regError'][$kulcs])) {
+        $_SESSION['regError'][$kulcs] .= $msg;
+    } else {
+        $_SESSION['regError'][$kulcs] .= $msg;
+    }
+    return true;
+}

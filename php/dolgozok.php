@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 require_once('../config/connect.php');
+session_start();
 if (isset($_SESSION['felhasznalo_id'])) {
     $id = $_SESSION['felhasznalo_id'];
 

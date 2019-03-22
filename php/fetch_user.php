@@ -1,6 +1,6 @@
 <?php
 
-include("../config/connect.php");
+require_once("../config/connect.php");
 session_start();
 $query = "SELECT * FROM belepesi_adatok WHERE felhasznalo_id != '" . $_SESSION['felhasznalo_id'] . "'";
 $result = $db_conn->query($query);
