@@ -1,5 +1,4 @@
 <?php
-
 include('config/connect.php');
 session_start();
 $message = "";
@@ -9,7 +8,6 @@ if (isset($_SESSION['felhasznalo_id'])) {
 } else {
     $menu = file_get_contents("html/logout.html");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +44,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                     <div class="col-lg-4">
                     </div>
                     <div class="col-lg-4 ">
-                        <button class="button fade-in one" onclick="location.href = '#connect'">Kapcsolat</button>
+                        <button class="button fade-in one" onclick="location.href = '#footer'">Kapcsolat</button>
                         <button class="button2 fade-in two" onclick="location.href = '#reklam'">Tudj meg többet</button>
                     </div>
                     <div class="col-lg-4">
@@ -133,9 +131,46 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 </div>
             </div>
 
-            <div id="connect" class="row col-lg-12 container3" style="background-image: url('img/tothebottom.jpg');">
-                <div class="row col-lg-12">
+            <div id="registration" class="row col-lg-12 container3" style="background-image: url('img/tothebottom.jpg');">
+                <div class="row col-lg-4">
+                </div>
+                <div class="row col-lg-4">
+                    <form id="regForm" method="=POST" action="registration_control.php">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="" class="col-sm-2 col-form-label">Felhasználónév</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="regUser" placeholder="Felhasználónév">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="" class="col-sm-2 col-form-label">Email</label>
+                                <input type="email" class="form-control" id="regEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="" class="col-sm-2 col-form-label">Jelszó</label>
+                                <input type="password" class="form-control" id="regPassword" placeholder="Jelszó">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="" class="col-sm-2 col-form-label">Jelszó megerősítése</label>
+                                <input type="password" class="form-control" id="regPasswordConfirm" placeholder="Jelszó megerősítése">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary">Regisztráció</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
+                <div class="row col-lg-4">
                 </div>
             </div>
 
@@ -158,7 +193,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 behavior: 'smooth';
             });
 
-            //Fő kép gombok feltűnése
+            //Fő kép gombok feltűnése Chrome böngészőben
             $(document).ready(function () {
                 $(window).onload(function () {
                     $('.button').fadeIn();

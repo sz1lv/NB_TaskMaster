@@ -23,8 +23,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
 
         <!--        jQuery library-->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/custom.js"></script>-->
+        <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--        JQuery UI Dialog box plugin-->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="../js/custom.js"></script>
