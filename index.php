@@ -1,6 +1,8 @@
 <?php
-include('config/connect.php');
 session_start();
+include("config/connect.php");
+//include("config/functions.php");
+
 $message = "";
 
 if (isset($_SESSION['felhasznalo_id'])) {
@@ -78,7 +80,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                     <p class="test">Egy letisztult, áttekinthető felület vár rád. Csatlakozz hozzánk!</p>
                 </div>
                 <div class="col-lg-4">
-                    <button class="button3"><a href="#">Tovább</a></button>
+                    <button class="button3"><a href="#registration">Tovább</a></button>
                 </div>
             </div>
 
@@ -125,7 +127,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                             <div class="ikon">
                                 <img class="ikon" src="img/icons8-checkmark-100.png">
                             </div>
-                            <h3>Garantált elégedettség</h3>
+                            <h3>Elégedettség</h3>
                         </div>
                     </div>
                 </div>
@@ -135,41 +137,50 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 <div class="row col-lg-4">
                 </div>
                 <div class="row col-lg-4">
-                    <form id="regForm" method="=POST" action="registration_control.php">
+                    <form id="regForm" method="=POST" action="php/registration.php">
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="" class="col-sm-2 col-form-label">Felhasználónév</label>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="regUser" placeholder="Felhasználónév">
+                                <input type="text" name="regUser" class="form-control" id="regUser" placeholder="Felhasználónév">
+                                <?php
+//                                if (isset($_SESSION['regError']['regUser'])) {
+//                                    echo "<span class='hiba'>" . $_SESSION['regError']['regUser'] . "</span>";
+//                                }
+//                                ?>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="" class="col-sm-2 col-form-label">Email</label>
-                                <input type="email" class="form-control" id="regEmail" placeholder="Email">
+                                <input type="email" name="regEmail" class="form-control" id="regEmail" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="" class="col-sm-2 col-form-label">Jelszó</label>
-                                <input type="password" class="form-control" id="regPassword" placeholder="Jelszó">
+                                <input type="password" name="regPassword" class="form-control" id="regPassword" placeholder="Jelszó">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="" class="col-sm-2 col-form-label">Jelszó megerősítése</label>
-                                <input type="password" class="form-control" id="regPasswordConfirm" placeholder="Jelszó megerősítése">
+                                <input type="password" name="regPasswordConfirm" class="form-control" id="regPasswordConfirm" placeholder="Jelszó megerősítése">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary">Regisztráció</button>
+                                <button type="submit" name="regSubmit" class="btn btn-primary">Regisztráció</button>
                             </div>
                         </div>
                     </form>
                 </div>
-
+                <?php
+                if (isset($_SESSION['success'])) {
+                    echo "<h1 style='color:red;'>Sikeres regisztráció!</h1>";
+                }
+                ?>
                 <div class="row col-lg-4">
                 </div>
             </div>
