@@ -141,14 +141,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="regName" class="col-sm-2 col-form-label">Felhasználónév</label>
-                            </div>
-                            <div class="col-sm-12">
                                 <input type="text" name="regName" class="form-control" id="regName" placeholder="Felhasználónév">
-                                <?php
-                                if (isset($_SESSION['regError']['regName'])) {
-                                    echo "<span>" . $_SESSION['regError']['regName'] . "</span>";
-                                }
-                                ?>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -171,6 +164,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
+                                <label for="password" class="col-sm-2 col-form-label">&nbsp</label>
                                 <button type="submit" name="regSubmit" value="Submit" class="btn btn-primary">Regisztráció</button>
                             </div>
                         </div>
