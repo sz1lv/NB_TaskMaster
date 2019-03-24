@@ -1,5 +1,10 @@
 <?php
 
+function dd($var) {
+    var_dump($var);
+    die();
+}
+
 function readPost($kulcs) {
     $temp = trim($_POST[$kulcs]);
     if (!empty($temp)) {

@@ -1,7 +1,6 @@
 <?php
-
-require_once("config/connect.php");
-require_once("config/functions.php");
+include("config/connect.php");
+include("config/functions.php");
 session_start();
 
 $message = "";
@@ -138,41 +137,41 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 <div class="row col-lg-4">
                 </div>
                 <div class="row col-lg-4">
-                    <form id="regForm" method="=POST" action="php/registration_control.php">
+                    <form id="regForm" method="POST" action="php/registration_control.php">
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="" class="col-sm-2 col-form-label">Felhasználónév</label>
+                                <label for="regName" class="col-sm-2 col-form-label">Felhasználónév</label>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" name="regUser" class="form-control" id="regUser" placeholder="Felhasználónév">
+                                <input type="text" name="regName" class="form-control" id="regName" placeholder="Felhasználónév">
                                 <?php
-                                if (isset($_SESSION['regError']['regUser'])) {
-                                    echo "<span>" . $_SESSION['regError']['regUser'] . "</span>";
+                                if (isset($_SESSION['regError']['regName'])) {
+                                    echo "<span>" . $_SESSION['regError']['regName'] . "</span>";
                                 }
                                 ?>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="" class="col-sm-2 col-form-label">Email</label>
+                                <label for="regEmail" class="col-sm-2 col-form-label">Email</label>
                                 <input type="email" name="regEmail" class="form-control" id="regEmail" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="" class="col-sm-2 col-form-label">Jelszó</label>
+                                <label for="regPassword" class="col-sm-2 col-form-label">Jelszó</label>
                                 <input type="password" name="regPassword" class="form-control" id="regPassword" placeholder="Jelszó">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="" class="col-sm-2 col-form-label">Jelszó megerősítése</label>
+                                <label for="password" class="col-sm-2 col-form-label">Jelszó megerősítése</label>
                                 <input type="password" name="regPasswordConfirm" class="form-control" id="regPasswordConfirm" placeholder="Jelszó megerősítése">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <button type="submit" name="regSubmit" class="btn btn-primary">Regisztráció</button>
+                                <button type="submit" name="regSubmit" value="Submit" class="btn btn-primary">Regisztráció</button>
                             </div>
                         </div>
                     </form>
