@@ -194,7 +194,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 </div>
             </div>
             <div class="col-lg-12">
-                <p class="copyright">Készítette: Vincze Szilvia</p>
+                <p class="copyright">Készítette: Vincze Szilvia, 2/14.de Szoftverfejlesztő</p>
             </div>
         </div>
         <script>

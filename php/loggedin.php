@@ -49,9 +49,9 @@ if (!isset($_SESSION['felhasznalo_id'])) {
                 </div>
             </div>
             <div class="row col-lg-12 maintenance">
-                <h3>Az oldal fejlesztés alatt!</h3>
+                <h3></h3>
                 <div class="table-responsive">
-                    <h4 align="center">Online felhasználók</h4>
+                    <h4 align="center">Felhasználók</h4>
                     <p align="left">Üdvözöljük - <?php echo $_SESSION['felhasznalo_nev']; ?></p>
                     <div id="user_details"></div>
                     <div id="user_model_details"></div>
