@@ -21,7 +21,7 @@ foreach ($result as $row) {
     if ($legutobbi_aktivitas > $current_timestamp) {
         $statusz = '<span class="p-2 mb-2 bg-success text-white">Online</span>';
     } else {
-        $statusz = '<span class="p-2 mb-2 bg-danger text-white">Offline</span>';
+        $statusz = '<span class="p-2 mb-2 bg-secondary text-white">Offline</span>';
     }
     $tabla .= '<tr><td>' . $row['felhasznalo_nev'] . ' ' . olvasatlan_uzenetek($row['felhasznalo_id'], $_SESSION['felhasznalo_id'], $db_conn) . '</td>'
             . '<td>' . $statusz . '</td>'

@@ -29,6 +29,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/reg_validation.js"></script>
         <!--        JQuery UI Dialog box plugin-->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -138,43 +139,47 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 </div>
                 <div class="row col-lg-4">
                     <form id="regForm" method="POST" action="php/registration_control.php">
+                        <?php
+                if (isset($_SESSION['success'])) {
+                    echo "<h1 class='success_text'>Sikeres regisztráció!</h1>";
+                }
+                ?>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="regName" class="col-sm-2 col-form-label">Felhasználónév</label>
-                                <input type="text" name="regName" class="form-control" id="regName" placeholder="Felhasználónév">
+                                <input type="text" name="regName" class="form-control" id="regName" placeholder="Felhasználónév" onblur="usernameCheck()" required>
+                                <span id="usernameError"></span>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="regEmail" class="col-sm-2 col-form-label">Email</label>
-                                <input type="email" name="regEmail" class="form-control" id="regEmail" placeholder="Email">
+                                <input type="email" name="regEmail" class="form-control" id="regEmail" placeholder="Email" onblur="emailCheck()" required>
+                                <span id="emailError"></span>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="regPassword" class="col-sm-2 col-form-label">Jelszó</label>
-                                <input type="password" name="regPassword" class="form-control" id="regPassword" placeholder="Jelszó">
+                                <input type="password" name="regPassword" class="form-control" id="regPassword" placeholder="Jelszó" onblur="passwordCheck()" required>
+                                <span id="passwError"></span>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="password" class="col-sm-2 col-form-label">Jelszó megerősítése</label>
-                                <input type="password" name="regPasswordConfirm" class="form-control" id="regPasswordConfirm" placeholder="Jelszó megerősítése">
+                                <label for=">" class="col-sm-2 col-form-label">Jelszó megerősítése</label>
+                                <input type="password" name="regPasswordConfirm" class="form-control" id="regPasswordConfirm" placeholder="Jelszó megerősítése" onblur="passwordConfirm()" required>
+                                <span id="confirmError"></span>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="password" class="col-sm-2 col-form-label">&nbsp</label>
+                                <label class="col-sm-2 col-form-label">&nbsp</label>
                                 <button type="submit" name="regSubmit" value="Submit" class="btn btn-primary">Regisztráció</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <?php
-                if (isset($_SESSION['success'])) {
-                    echo "<h1 style='color:red;'>Sikeres regisztráció!</h1>";
-                }
-                ?>
                 <div class="row col-lg-4">
                 </div>
             </div>

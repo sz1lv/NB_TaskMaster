@@ -602,3 +602,13 @@ label.col-sm-2.col-form-label {
 #regEmail {
     border-radius: 0;
 }
+
+.success_text {
+    color: #6441a5;
+    text-align: center !important;
+    font-size: 1em;
+}
+
+.col-sm-12 span {
+    color: red;
+}
