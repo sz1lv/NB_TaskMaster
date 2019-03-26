@@ -9,8 +9,8 @@ $row = $result->fetch_assoc();
 $tabla = '<table class="table table-bordered table-striped">'
         . '<tr>'
         . '<td>Felhasználónév</td>'
-        . '<td>Státusz</td>'
-        . '<td>Tevékenység</td>'
+        . '<td class="user_col">Státusz</td>'
+        . '<td class="user_col">Tevékenység</td>'
         . '</tr>';
 
 foreach ($result as $row) {
@@ -24,8 +24,8 @@ foreach ($result as $row) {
         $statusz = '<span class="p-2 mb-2 bg-secondary text-white">Offline</span>';
     }
     $tabla .= '<tr><td>' . $row['felhasznalo_nev'] . ' ' . olvasatlan_uzenetek($row['felhasznalo_id'], $_SESSION['felhasznalo_id'], $db_conn) . '</td>'
-            . '<td>' . $statusz . '</td>'
-            . '<td><button type="button" class="btn btn-info btn-xs start_chat" data-kinekid="' . $row['felhasznalo_id'] . '" data-kineknev="' . $row['felhasznalo_nev'] . '">Üzenet küldése</button></td>'
+            . '<td class="user_col">' . $statusz . '</td>'
+            . '<td class="user_col"><button type="button" class="btn btn-info btn-xs start_chat" data-kinekid="' . $row['felhasznalo_id'] . '" data-kineknev="' . $row['felhasznalo_nev'] . '">Üzenet küldése</button></td>'
             . '</tr>';
 }
 $tabla .= '</table>';

@@ -140,10 +140,12 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 <div class="row col-lg-4">
                     <form id="regForm" method="POST" action="php/registration_control.php">
                         <?php
-                if (isset($_SESSION['success'])) {
-                    echo "<h1 class='success_text'>Sikeres regisztráció!</h1>";
-                }
-                ?>
+                        if (isset($_SESSION['success'])) {
+                            echo "<h1 class='success_text'>Sikeres regisztráció!</h1>";
+                        } else {
+                            echo "";
+                        }
+                        ?>
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label for="regName" class="col-sm-2 col-form-label">Felhasználónév</label>
@@ -184,18 +186,10 @@ if (isset($_SESSION['felhasznalo_id'])) {
                 </div>
             </div>
 
-            <div id="footer" class="row col-lg-12">
-                <div class="col-lg-8">
-                </div>
-                <div class="col-lg-4 connect-info">
-                    <p>Helyszín: Szeged</p><br>
-                    <p>Email:<a href="mailto:teszt@teszt.hu"> teszt@teszt.hu</a></p><br>
-                    <p>Telefonszám: 0123456789</p>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <p class="copyright">Készítette: Vincze Szilvia, 2/14.de Szoftverfejlesztő</p>
-            </div>
+            <?php
+            $footer = file_get_contents("html/footer.html");
+            echo $footer;
+            ?>
         </div>
         <script>
             // Smooth ugrás #-k között

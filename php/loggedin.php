@@ -1,5 +1,4 @@
 <?php
-
 require_once("../config/connect.php");
 session_start();
 if (!isset($_SESSION['felhasznalo_id'])) {
@@ -30,38 +29,24 @@ if (!isset($_SESSION['felhasznalo_id'])) {
 
     </head>
     <body>
-        <div class="container-fluid logged">
-            <div class="row col-lg-12 first">
-                <div class="col-lg-4 mainmenu">
-                    <ul class="menu">
-                        <li class="logo"><img style="height:3em;" src="../img/tm_logo7-1.png"><a href="loggedin.php">taskmaster</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mainmenu">
-                    <ul class="menu">
-                        <li><a href="dolgozok.php">Munkatársaink</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mainmenu">
-                    <form method="POST" action="kilep.php">
-                        <input class="button3" type="submit" value="Kijelentkezés" name="kijelentkezes">
-                    </form>
-                </div>
-            </div>
-            <div class="row col-lg-12 maintenance">
-                <h3></h3>
-                <div class="table-responsive">
-                    <h4 align="center">Felhasználók</h4>
-                    <p align="left">Üdvözöljük - <?php echo $_SESSION['felhasznalo_nev']; ?></p>
-                    <div id="user_details"></div>
-                    <div id="user_model_details"></div>
-                </div>
+        <?php
+        $menu = file_get_contents("../html/loggedin_menu.html");
+        echo $menu;
+        ?>
+        <div class="row col-lg-12 maintenance">
+            <h3></h3>
+            <div class="table-responsive">
+                <h4 align="center">Felhasználók</h4>
+                <p class="welcome_user">Üdv <?php echo $_SESSION['felhasznalo_nev'];?>!</p>
+                <div id="user_details"></div>
+                <div id="user_model_details"></div>
             </div>
         </div>
-
-
-    </div>
-</body>
+        <?php
+        $footer = file_get_contents("../html/footer.html");
+        echo $footer;
+        ?>
+    </body>
 </html>
 <script>
     $(document).ready(function () {

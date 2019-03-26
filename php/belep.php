@@ -11,11 +11,7 @@ if (isset($_POST['submit'])) {
         $row = $result->fetch_assoc();
         $_SESSION['felhasznalo_id'] = $row['felhasznalo_id'];
         $_SESSION['felhasznalo_nev'] = $row['felhasznalo_nev'];
-        $sub_query = "
-        INSERT INTO belepes_reszletek
-        (felhasznalo_id)
-        VALUES ('".$row['felhasznalo_id']."')
-        ";
+        $sub_query = "INSERT INTO belepes_reszletek (felhasznalo_id) VALUES ('".$row['felhasznalo_id']."')";
         $statement = $db_conn->prepare($sub_query);
         $statement->execute();
         $_SESSION['id'] = $db_conn-> insert_id;

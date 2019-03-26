@@ -40,6 +40,8 @@ if ($regHiba) {
     die();
 }
 
+//$regPassword = readPost('regPassword');
+//$regPassword = password_hash($regPassword, PASSWORD_BCRYPT);
 $_SESSION['regError']['regName'] = "";
 $sql = "INSERT INTO belepesi_adatok (felhasznalo_nev,jelszo,jogosultsag,main_email) VALUES ('$regName','$regPassword',1,'$regEmail')";
 $result = $db_conn->query($sql);

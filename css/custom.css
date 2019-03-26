@@ -1,6 +1,17 @@
-html {
+html, body {
     scroll-behavior: smooth; /*Chrome, Firefox*/
+    height: 100%;
 }
+
+body {
+    min-height: 100%;
+}
+
+/*body::after {
+  content: '';
+  display: block;
+}*/
+
 
 .menu {
     padding-top: 1.5em;
@@ -190,12 +201,13 @@ div.row.col-lg-12.first {
     background-color: #323232;
     height: 300px;
     border-bottom: 2em solid #222222;
-    position: relative;
-    bottom: 0;
-    left: 0;
+    position:inherit;
+    bottom: 0 !important;
+    left: 0 !important;
     color: #fff;
     min-width: 100%;
     text-align: right;
+    margin-top: -40px !important;
 }
 
 .row.col-lg-12.container {
@@ -507,6 +519,12 @@ div.col-lg-8.mainmenu.mobil_nav  {
 
 /* Reszponzív rész */
 
+/*@media only screen and (max-width: 360px) {
+    .table.table-bordered.table-striped td {
+        font-size: 12px;
+    }
+}*/
+
 @media only screen and (max-width: 600px) {
     .hamburger {
         display: block;
@@ -546,6 +564,12 @@ div.col-lg-8.mainmenu.mobil_nav  {
     }
     div.container-fluid.logged {
         padding-bottom: 15%;
+    }
+    .table.table-bordered.table-striped td {
+        font-size: 12px;
+    }
+    .menu {
+        flex-direction: column;
     }
 }
 
@@ -620,4 +644,19 @@ label.col-sm-2.col-form-label {
 
 .ui-dialog .ui-dialog-titlebar-close {
     margin: -10px 0 0 0 !important;
+}
+
+#user_details, #employee {
+    margin-bottom: 3em !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+}
+
+.user_col {
+    text-align: center;
+}
+
+.welcome_user {
+    text-align: right;
+    margin-right: 10% !important;
 }

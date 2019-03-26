@@ -1,10 +1,8 @@
 <?php
-
 require_once('../config/connect.php');
 session_start();
 if (isset($_SESSION['felhasznalo_id'])) {
     $id = $_SESSION['felhasznalo_id'];
-
 } else {
     header('Location: ../index.php');
     die();
@@ -65,26 +63,28 @@ if ($result) {
     </head>
     <body>
         <?php
-        $menu = file_get_contents("loggedin.php");
+        $menu = file_get_contents("../html/loggedin_menu.html");
         echo $menu;
         ?>
-            <?php
-            $urlap = "<form method='GET' action='dolgozok.php'>";
-            $sql = "SELECT DISTINCT lakohely FROM dolgozo;";
-            $result = $db_conn->query($sql);
-            if ($result) {
-                $urlap .= "<select class='szures' name='lakohely'>";
-                while ($row = $result->fetch_row()) {
-                    $urlap .= "<option>{$row[0]}</option>";
-                }
-                $urlap .= "</select>";
-                $urlap .= "<input class='szures_btn' type='submit' value='Szűrés' name='szures'>"
-                        . "<input onClick='window.location.href='dolgozok.php'' class='szures_btn' type='submit' value='Összes' name='all'>"
-                        . "</form>";
+        <?php
+        $urlap = "<div class='container-fluid'>"
+                . "<form method='GET' action=''>";
+        $sql = "SELECT DISTINCT lakohely FROM dolgozo;";
+        $result = $db_conn->query($sql);
+        if ($result) {
+            $urlap .= "<select class='szures' name='lakohely'>";
+            while ($row = $result->fetch_row()) {
+                $urlap .= "<option>{$row[0]}</option>";
             }
-            echo $urlap;
-            echo "</div>";
-            echo $tabla;
-            ?>
+            $urlap .= "</select>";
+            $urlap .= "<input class='szures_btn' type='submit' value='Szűrés' name='szures'>"
+                    . "<input onClick='window.location.href='dolgozok.php'' class='szures_btn' type='submit' value='Összes' name='all'>"
+                    . "</form>"
+                    . "</div>";
+        }
+        echo $urlap;
+        echo "</div>";
+        echo $tabla;
+        ?>
     </body>
 </html>
