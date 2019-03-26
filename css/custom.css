@@ -133,7 +133,12 @@ button.button3 a:hover {
     -o-background-size: cover;
     background-size: cover;
     height: 860px;
+/*    transition: all 3s ease-in-out;*/
 }
+
+/*.main-image:hover {
+    transform: scale(1.1);
+}*/
 
 .buttonpart, .buttonpart2 {
     z-index: 1;
@@ -156,6 +161,7 @@ h5 {
 .mainmenu {
     background-color: #fff;
     border: 3px solid #fff;
+    box-shadow: 0px 1px 0px #C0C0C0 !important;
 }
 
 div.row.col-lg-12.first {

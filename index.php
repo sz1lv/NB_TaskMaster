@@ -37,29 +37,31 @@ if (isset($_SESSION['felhasznalo_id'])) {
     <body>
         <div class="container-fluid">
 
-            <div class="row col-lg-12 main-image overlay" style="background-image: url('img/4k-desktop-background.jpg');">
-                <div>
-                    <?php
-                    echo $menu;
-                    ?>
-                </div>
-                <div class="row col-lg-12 buttonpart">
-                    <div class="col-lg-4">
+            <div class="row col-lg-12">
+                    <div>
+                        <?php
+                        echo $menu;
+                        ?>
                     </div>
-                    <div class="col-lg-4 ">
-                        <button class="button fade-in one" onclick="location.href = '#footer'">Kapcsolat</button>
-                        <button class="button2 fade-in two" onclick="location.href = '#reklam'">Tudj meg többet</button>
-                    </div>
-                    <div class="col-lg-4">
-                        <div id="login">
-                            <form id="outForm" method="POST" action="php/belep.php">
-<!--                                <p class="text-danger"><?php echo $message; ?></p>-->
-                                <label>Felhasználónév:</label>
-                                <input class="form-control" type="text" name="felhasznalo_nev" placeholder="" required>
-                                <label>Jelszó:</label>
-                                <input class="form-control" type="password" name="jelszo" placeholder="" required>
-                                <input class="button3" type="submit" value="Bejelentkezés" name="submit">
-                            </form>
+                <div class="col-lg-12 main-image overlay" style="background-image: url('img/4k-desktop-background.jpg');">
+                    <div class="row col-lg-12 buttonpart">
+                        <div class="col-lg-4">
+                        </div>
+                        <div class="col-lg-4 ">
+                            <button class="button fade-in one" onclick="location.href = '#footer'">Kapcsolat</button>
+                            <button class="button2 fade-in two" onclick="location.href = '#reklam'">Tudj meg többet</button>
+                        </div>
+                        <div class="col-lg-4">
+                            <div id="login">
+                                <form id="outForm" method="POST" action="php/belep.php">
+    <!--                                <p class="text-danger"><?php echo $message; ?></p>-->
+                                    <label>Felhasználónév:</label>
+                                    <input class="form-control" type="text" name="felhasznalo_nev" placeholder="" required>
+                                    <label>Jelszó:</label>
+                                    <input class="form-control" type="password" name="jelszo" placeholder="" required>
+                                    <input class="button3" type="submit" value="Bejelentkezés" name="submit">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
