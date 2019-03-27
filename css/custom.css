@@ -59,7 +59,6 @@ a:hover {
     margin: 0 !important;
     padding: 0;
     font-family: "Century Gothic";
-    /*    padding-left: 0px !important;*/
 }
 
 .button {
@@ -143,13 +142,6 @@ button.button3 a:hover {
 .buttonpart, .buttonpart2 {
     z-index: 1;
 }
-
-/*@media only screen and (min-width: 720px) {
-    .mainmenu {
-        display: flex;
-        flex-direction: column;
-    }
-}*/
 
 h5 {
     color: #fff;
@@ -665,4 +657,65 @@ label.col-sm-2.col-form-label {
 .welcome_user {
     text-align: right;
     margin-right: 10% !important;
+}
+
+#area {
+    display: flex;
+    margin: 0 auto !important;
+}
+
+#labelArea {
+    flex-direction: column;
+    margin-right: 2vw !important;
+}
+
+#inputArea {
+    flex-direction: column;
+}
+
+#buttonArea {
+    margin: 0 auto !important;
+}
+
+.buttonUpdate {
+    background-color: #6441a5;
+    color: #fff !important;
+    text-transform: uppercase !important;
+    padding: 10px 30px 10px 30px !important;
+    border: 1px solid #6441a5;
+    cursor: pointer;
+}
+
+.buttonUpdate:hover {
+    background-color: #422b6d;
+    border: 1px solid #422b6d;
+    text-decoration: none !important;
+}
+
+#inputArea input {
+    margin-bottom: 10px !important;
+}
+
+.updateData {
+    color: #fff;
+    margin-bottom: 15px !important;
+}
+
+form h4 {
+    color: #fff;
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+#updatePasswordError, #updatePasswordConfirmError {
+    color: yellow;
+}
+
+#profile {
+    background-repeat: no-repeat;
+    background-position: left left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
