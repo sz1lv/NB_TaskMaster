@@ -18,7 +18,6 @@ $result = $db_conn->query($sql);
 if ($result) {
     $input = "<form action='' method='POST'>"
             . "<h4 style='margin-bottom:2em;'>Felhasználói jelszó megváltoztatása</h4>"
-            //. "<span id='successUpdate'></span><br>"
             . "<div id='area' class='col-lg-4'>"
             . "<div id='labelArea'>"
             . "<label class='updateData'>Felhasználónév:</label><br>"
@@ -27,7 +26,7 @@ if ($result) {
             . "</div>";
     while ($row = $result->fetch_assoc()) {
         $input .= "<div id='inputArea'>"
-                . "<input value=\"" . $row['felhasznalo_nev'] . "\"><br>"
+                . "<input class='readonlyUserName' value=\"" . $row['felhasznalo_nev'] . "\" readonly><br>"
                 . "<input type='password' id='updatePassword' name='updatePassword' onblur='updatePasswordCheck()' required><br>"
                 . "<input type='password' id='updatePasswordConfirm' name='updatePasswordConfirm' onblur='updatePasswordConfirmCheck()' required>"
                 . "</div>"
@@ -40,7 +39,6 @@ if ($result) {
             . "</div>"
             . "</form>";
 }
-//value=\"" . $row['jelszo'] . "\"
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,7 +81,6 @@ if ($result) {
                         . "<input name='updatePassword'>";
             }
             $result = $statement->execute();
-            //echo $succesMessage = "Sikeresen módosítottad jelszavad!";
         }
 
         echo "<h1 style='padding-top:3em;'></h1>";

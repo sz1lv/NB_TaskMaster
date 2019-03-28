@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/xampp/htdocs/NB_TaskMaster/css/custom.css</file>
             <file>file:/C:/xampp/htdocs/NB_TaskMaster/php/profile.php</file>
-            <file>file:/C:/xampp/htdocs/NB_TaskMaster/index.php</file>
-            <file>file:/C:/xampp/htdocs/NB_TaskMaster/php/dolgozok.php</file>
+            <file>file:/C:/xampp/htdocs/NB_TaskMaster/php/registration_control.php</file>
+            <file>file:/C:/xampp/htdocs/NB_TaskMaster/js/update_pw_validation.js</file>
         </group>
     </open-files>
 </project-private>
