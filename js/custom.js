@@ -1,4 +1,4 @@
-// Adott menüpont ki- és becsukása
+//Adott menüpont ki- és becsukása
 $(document).ready(function () {
     $('#btn').click(function () {
         $('#login').slideToggle();
@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 
 
-// Kép, illetve div elemek mozgatása, mikor az ablak aktív mezejébe kerülnek görgetéskor
+//Kép, illetve div elemek mozgatása, mikor az ablak betöltése után elsőre aktív látómezőbe kerülnek görgetéskor
 (function($) {
   $.fn.visible = function(partial) {
 
@@ -31,6 +31,7 @@ $(document).ready(function () {
 
 })(jQuery);
 
+//Görgetésre megjelenő nagy logó az index kép alatt
 $(window).scroll(function(event) {
   $(".big-logo").each(function(i, el) {
     var el = $(el);
@@ -38,12 +39,14 @@ $(window).scroll(function(event) {
       el.addClass("come-in");
     }
   });
+  //Görgetésre a 'Tudj meg többet' szekció első sorának feltűnése
   $(".firstRow").each(function(i, el) {
     var el = $(el);
     if (el.visible(true)) {
       el.addClass("come-up1");
     }
   });
+  //Görgetésre a 'Tudj meg többet' szekció második sorának feltűnése késleltetve az elsőhöz képest (custom.css)
   $(".secondRow").each(function(i, el) {
     var el = $(el);
     if (el.visible(true)) {

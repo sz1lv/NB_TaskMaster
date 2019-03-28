@@ -1,6 +1,7 @@
 <?php
 require_once('../config/connect.php');
 session_start();
+//Ellenőrzöm, belépett-e a felhasználó
 if (isset($_SESSION['felhasznalo_id'])) {
     $id = $_SESSION['felhasznalo_id'];
 } else {
@@ -8,13 +9,15 @@ if (isset($_SESSION['felhasznalo_id'])) {
     die();
 }
 
-$sql = "SELECT * FROM belepesi_adatok;";
+//Itt a 'belepesi_adatok' rekonrdjait kérem le és tárolom el
+$sql = "SELECT * FROM belepesi_adatok WHERE felhasznalo_id LIKE '$id';";
 $result = $db_conn->query($sql);
 $numRows = $result->num_rows;
 
-$sql = "SELECT * FROM belepesi_adatok WHERE felhasznalo_id LIKE '$id'";
-$result = $db_conn->query($sql);
+//$sql = "SELECT * FROM belepesi_adatok WHERE felhasznalo_id LIKE '$id'";
+//$result = $db_conn->query($sql);
 
+//Az eltárolt adat megjelenítése
 if ($result) {
     $input = "<form action='' method='POST'>"
             . "<h4 style='margin-bottom:2em;'>Felhasználói jelszó megváltoztatása</h4>"
@@ -26,12 +29,15 @@ if ($result) {
             . "</div>";
     while ($row = $result->fetch_assoc()) {
         $input .= "<div id='inputArea'>"
+                //Csak a bejelentkezett felhasználó nevét jelenítem meg, amit nem lehet megváltoztatni
                 . "<input class='readonlyUserName' value=\"" . $row['felhasznalo_nev'] . "\" readonly><br>"
+                //Jelszó mezők üresek, az ide beírt és validált új jelszó mentésre kerül az adatbázisba
                 . "<input type='password' id='updatePassword' name='updatePassword' onblur='updatePasswordCheck()' required><br>"
                 . "<input type='password' id='updatePasswordConfirm' name='updatePasswordConfirm' onblur='updatePasswordConfirmCheck()' required>"
                 . "</div>"
                 . "</div>";
     }
+    //Validálási hiba esetén az alább létrehozott grafikai elemekben jelenítem meg a hibaüzenetet
     $input .= "<div id='buttonArea' class='col-lg-4'>"
             . "<span id='updatePasswordError'></span><br>"
             . "<span id='updatePasswordConfirmError'></span><br>"
@@ -59,18 +65,22 @@ if ($result) {
     </head>
     <body id="profile" style="background-image: url(../img/profile3.jpg)">
         <?php
+        //Menü behúzása
         $menu = file_get_contents("../html/loggedin_menu.html");
         echo $menu;
         ?>
         <?php
+        //Mentés gomb kattintás esemény
         if (isset($_POST['updateSubmit'])) {
             //$succesMessage = $_POST['successUpdate'];;
             $updatePassword = $_POST['updatePassword'];
             $updatePasswordConfirm = $_POST['updatePasswordConfirm'];
+            //Ha nem egyeznek a jelszavak, nem kerül frissítésre az adatbázisban, újra kell próbálkozni
             if($updatePassword != $updatePasswordConfirm) {
                 header ("Location: profile.php");
                 die();
             }
+            //Ellenkező esetben az adatbázisban frissül ezen adat
             $id = $_SESSION['felhasznalo_id'];
             $updatePassword = $_POST['updatePassword'];
             $query = "UPDATE belepesi_adatok SET jelszo= ? WHERE felhasznalo_id = ?";
@@ -84,7 +94,9 @@ if ($result) {
         }
 
         echo "<h1 style='padding-top:3em;'></h1>";
+        //Jelszó módosítás form megjelenítése kliensoldalon
         echo $input;
+        //Footer meghívása és megjelenítése
         $footer = file_get_contents("../html/footer.html");
         echo "<div style='position:fixed;left:0;bottom:0;'>$footer</div>";
         //$statement->close();

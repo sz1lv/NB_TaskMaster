@@ -5,6 +5,7 @@ session_start();
 
 $message = "";
 
+//Vizsgálom, hogy van-e már bejelentkezett felhasználó
 if (isset($_SESSION['felhasznalo_id'])) {
     $menu = file_get_contents("php/loggedin.php");
 } else {
@@ -40,6 +41,7 @@ if (isset($_SESSION['felhasznalo_id'])) {
             <div class="row col-lg-12">
                     <div>
                         <?php
+                        //logout.html által meghatározott menüt jelenítem meg
                         echo $menu;
                         ?>
                     </div>

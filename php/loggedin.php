@@ -1,6 +1,7 @@
 <?php
 require_once("../config/connect.php");
 session_start();
+//Vizsgálom, hogy adott felhasználó belépett-e, csak akkor engedem erre az oldalra
 if (!isset($_SESSION['felhasznalo_id'])) {
     header("location: ../index.php");
 }
@@ -30,6 +31,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
     </head>
     <body>
         <?php
+        //Menüszerkezet meghívása és megjelenítése
         $menu = file_get_contents("../html/loggedin_menu.html");
         echo $menu;
         ?>
@@ -53,11 +55,14 @@ if (!isset($_SESSION['felhasznalo_id'])) {
 
         fetch_user();
 
+        // Felhasználó aktivitása 2 másodpercenként frissül
+        // Függvények meghívása, hogy ezt megtudjam jeleníteni
         setInterval(function () {
             update_last_activity();
             fetch_user();
             update_message();
         }, 2000);
+
 
         function fetch_user()
         {
@@ -70,6 +75,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
             });
         }
 
+        //Aktivitás frissítése
         function update_last_activity()
         {
             $.ajax({
@@ -81,6 +87,8 @@ if (!isset($_SESSION['felhasznalo_id'])) {
             });
         }
 
+        //Kialakítom a chat-box kinézetét, meghívom a megfelelő felhasználót, üzenet megjelenítése
+        //Az egészet eltárolom a chat_ablak változóban
         function chat_box(kinek_id, kinek_nev)
         {
             var chat_ablak = '<div id="user_dialog_' + kinek_id + '" class="user_dialog" title="Csevegés vele: ' + kinek_nev + '">';
@@ -94,6 +102,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
             $('#user_model_details').html(chat_ablak);
         }
 
+        //Kattintásra a párbeszédablak megjelenik
         $(document).on('click', '.start_chat', function () {
             var kinek_id = $(this).data('kinekid');
             var kinek_name = $(this).data('kineknev');
@@ -105,6 +114,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
             $('#user_dialog_' + kinek_id).dialog('open');
         });
 
+        //Meghívott insert_chat.php-val a megfelelő szöveg jelenik meg kliensoldalon és tárolódik az adatbázisban is
         $(document).on('click', '.send_chat', function () {
             var kinek_id = $(this).attr('id');
             var uzenet = $('#uzenet' + kinek_id).val();
@@ -119,6 +129,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
                 }
             })
         });
+
 
         function fetch_message(kinek_id)
         {
@@ -140,6 +151,7 @@ if (!isset($_SESSION['felhasznalo_id'])) {
             });
         }
 
+        //Párbeszédablak bezárása
         $(document).on('click', '.ui-button-icon', function () {
             $('.user_dialog').dialog('destroy').remove();
         });

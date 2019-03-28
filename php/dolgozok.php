@@ -1,6 +1,8 @@
 <?php
+
 require_once('../config/connect.php');
 session_start();
+//Vizsgálom, hogy belépett-e valaki, cask akkor engedem erre az oldalra, egyébként nem
 if (isset($_SESSION['felhasznalo_id'])) {
     $id = $_SESSION['felhasznalo_id'];
 } else {
@@ -9,19 +11,23 @@ if (isset($_SESSION['felhasznalo_id'])) {
     //$menu = file_get_contents("html/logout.html");
 }
 
+//Kilistázom és eltárolom a dolgozo tábla rekordjait
 $sql = "SELECT * FROM dolgozo;";
 $result = $db_conn->query($sql);
 $numRows = $result->num_rows;
 
+//Vizsgálom, haszánlta-e a felhaszánló a Szűrés gombot
 if (isset($_GET['szures'])) {
     $lakohely = $_GET['lakohely'];
 } else {
     $lakohely = "%";
 }
 
+//Lakóhely szerint rendezem a szűrést
 $sql = "SELECT * FROM dolgozo WHERE lakohely LIKE '$lakohely'";
 $result = $db_conn->query($sql);
-
+//Kilistázott dolgozókat az alábbiak szerint jelenítem meg
+//Táblázat létrehozása, fejléccel
 if ($result) {
     $tabla = "<table id='employee'>"
             . "<tr>"
@@ -32,6 +38,7 @@ if ($result) {
             . "<td>Telefonszám</td>"
             . "<td>Pozíció</td>"
             . "</tr>";
+    //Amíg az adat tart, feltöltöm értékkel a cellákat a megfelelő asszociációstömb elemnév alapján
     while ($row = $result->fetch_assoc()) {
         $tabla .= "<tr>"
                 . "<td>{$row['azonosito']}</td>"
@@ -63,10 +70,12 @@ if ($result) {
     </head>
     <body>
         <?php
+        //Hozzáfűzöm a html-hez a megfelelő menüt és kiíratom
         $menu = file_get_contents("../html/loggedin_menu.html");
         echo $menu;
         ?>
         <?php
+        //A korábban lakóhely szerint listázott szűrésnek grafikus elemeket adok, adatbázisból feltöltöm adattal
         $urlap = "<div class='container-fluid'>"
                 . "<form method='GET' action=''>";
         $sql = "SELECT DISTINCT lakohely FROM dolgozo;";
@@ -78,6 +87,7 @@ if ($result) {
             }
             $urlap .= "</select>";
             $urlap .= "<input class='szures_btn' type='submit' value='Szűrés' name='szures'>"
+                    //Az összes elem megjelenítéséhez újratöltöm az oldalt, ami alapállapotba helyezi a szűrést
                     . "<input onClick='window.location.href='dolgozok.php'' class='szures_btn' type='submit' value='Összes' name='all'>"
                     . "</form>"
                     . "</div>";

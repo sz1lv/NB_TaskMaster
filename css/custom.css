@@ -333,6 +333,8 @@ ul.menu.forMobile li a {
     min-width: 100% !important;
 }
 
+
+/*Gombok feltűnése Chrome és Edge böngészőkben*/
 .fade-in, .slide-in {
     opacity:0 !important;
     -webkit-animation:fadeIn ease-in 1;
@@ -515,68 +517,6 @@ div.col-lg-8.mainmenu.mobil_nav  {
     text-align: center;
 }
 
-/* Reszponzív rész */
-
-/*@media only screen and (max-width: 360px) {
-    .table.table-bordered.table-striped td {
-        font-size: 12px;
-    }
-}*/
-
-@media only screen and (max-width: 600px) {
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-    ul.menu.forMobile {
-        display: none;
-    }
-    ul.menu.forMobile li a {
-        display: block;
-    }
-    #toggle:checked + .menu.forMobile {
-        display: block;
-    }
-    .button, .button2 {
-        display: none;
-    }
-    .who-are-we {
-        min-width: 100%;
-        text-align: center;
-    }
-    li {
-        min-width: 100%;
-    }
-    @keyframes come-in {
-        from {
-            transform: translateY(0%));
-        }
-        to {
-            transform: translateY(5%);
-        }
-    }
-    img.big-logo.come-in {
-        height: 100%;
-        width: 100%;
-        padding: 30px !important;
-    }
-    div.container-fluid.logged {
-        padding-bottom: 15%;
-    }
-    .table.table-bordered.table-striped td {
-        font-size: 12px;
-    }
-    .menu {
-        flex-direction: column;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    div.container-fluid.logged {
-        padding-bottom: 10%;
-    }
-}
-
 .btn {
     border-radius: 0 !important;
     margin-left: 5px !important;
@@ -727,3 +667,65 @@ input.readonlyUserName:-moz-read-only { /* For Firefox */
 input.readonlyUserName:read-only {
   background-color: #FFFFCC;
 }
+
+/* Reszponzív rész */
+
+@media only screen and (max-width: 600px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    ul.menu.forMobile {
+        display: none;
+    }
+    ul.menu.forMobile li a {
+        display: block;
+    }
+    #toggle:checked + .menu.forMobile {
+        display: block;
+    }
+    .button, .button2 {
+        display: none;
+    }
+    .who-are-we {
+        min-width: 100%;
+        text-align: center;
+    }
+    li {
+        min-width: 100%;
+    }
+    @keyframes come-in {
+        from {
+            transform: translateY(0%));
+        }
+        to {
+            transform: translateY(5%);
+        }
+    }
+    img.big-logo.come-in {
+        height: 100%;
+        width: 100%;
+        padding: 30px !important;
+    }
+    div.container-fluid.logged {
+        padding-bottom: 15%;
+    }
+    .table.table-bordered.table-striped td {
+        font-size: 12px;
+    }
+    .menu {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    div.container-fluid.logged {
+        padding-bottom: 10%;
+    }
+}
+
+/*@media only screen and (max-width: 360px) {
+    .table.table-bordered.table-striped td {
+        font-size: 12px;
+    }
+}*/
