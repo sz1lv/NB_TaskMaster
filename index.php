@@ -23,28 +23,33 @@ if (isset($_SESSION['felhasznalo_id'])) {
         <!--        Favicon-->
         <link rel="shortcut icon" type="image/png" href="img/tm_logo7-1.png"/>
         <!--        CSS-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
         <link rel="stylesheet" type="text/css" href="css/custom.css" media="all">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" media="all">
+<!--        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
         <!--        jQuery library-->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+        <script src="js/jquery-1.12.4.js"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/custom.js"></script>
         <script src="js/reg_validation.js"></script>
-        <!--        JQuery UI Dialog box plugin-->
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <!--        JQuery UI Dialog box js-->
+<!--        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 
     </head>
     <body>
         <div class="container-fluid">
 
             <div class="row col-lg-12">
-                    <div>
-                        <?php
-                        //logout.html által meghatározott menüt jelenítem meg
-                        echo $menu;
-                        ?>
-                    </div>
+                <div>
+                    <?php
+                    //logout.html által meghatározott menüt jelenítem meg
+                    echo $menu;
+                    ?>
+                </div>
                 <div class="col-lg-12 main-image overlay" style="background-image: url('img/4k-desktop-background.jpg');">
                     <div class="row col-lg-12 buttonpart">
                         <div class="col-lg-4">

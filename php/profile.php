@@ -55,15 +55,17 @@ if ($result) {
 
         <link rel="shortcut icon" type="image/png" href="../img/tm_logo7-1.png"/>
         <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/update_pw_validation.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/custom.css" media="all">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" media="all">
 
     </head>
-    <body id="profile" style="background-image: url(../img/profile3.jpg)">
+    <body id="profile" style="background-image: url(../img/profile3-min.jpg)">
         <?php
         //Menü behúzása
         $menu = file_get_contents("../html/loggedin_menu.html");
